@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "sport_nft_marketplace_backend": {
+      "main": "src/sport_nft_marketplace_backend/main.mo",
+      "type": "motoko"
+    },
+    "sport_nft_marketplace_frontend": {
+      "dependencies": [
+        "sport_nft_marketplace_backend"
+      ],
+      "source": [
+        "src/sport_nft_marketplace_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "sport_nft_marketplace_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
