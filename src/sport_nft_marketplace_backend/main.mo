@@ -1,35 +1,53 @@
 import Debug "mo:base/Debug";
-import Text "mo:base/Text";
 import Time "mo:base/Time";
 import Array "mo:base/Array";
 import Iter "mo:base/Iter";
+import Text "mo:base/Text";
+import Float "mo:base/Float";
 
-actor {
+actor main {
 
-  /* ----------- ATHLETE IDENTITY ------------- */
+  /* ------------------------ ATHLETE IDENTITY -------------------------- */
+
+  /* ---------------- AGE FUNCTION ---------------- */
+
+  /* Don't know if this function is essential, as if
+  it's could be possible to prepare all with TS then,
+  inject it in the smart contract. ---------------- */
 
   // Don't forget UPPERCASE on the class.
   // Can't get the same name for the input variable & the output variable.
 
-  let identityData = [                                  // ERROR : I think it needs to be a HashMap.
-    "FName" : Text,
-    "LName" : Text,
-    "Birthday" : Nat,
-    "Sport" : Text,
-    "Gender" : Text,
-  ];
+  // public func getAgeInS(m : Float, d : Float, y : Float) : async () {
 
-  for (input in identityData.vals()) {                  // It's working, but I think there is a more simple way.
-    // Debug.print(debug_show ("input" #input));
-    return "input" #input # :;
+  //   // This function get the age of user in seconds.
+
+  //   let birthMInS : Float = m * 30.5 * 24 * 60 * 60;
+  //   let birthDInS : Float = d * 24 * 60 * 60;
+  //   let birthYInS : Float = (2024 - y) * 365.25 * 24 * 60 * 60;
+  //   let ageInS : Float = (birthDInS + birthMInS + birthYInS);
+
+  //   Debug.print(debug_show (ageInS));
+  // };
+
+  class SportMW(
+    inputFName : Text,
+    inputLName : Text,
+    inputBirthM : Nat,
+    inputBirthD : Nat,
+    inputBirthY : Nat,
+    inputSport : Text,
+    inputGender : Text,
+  ) = {
+    public let fName = inputFName;
+    public let lName = inputLName;
+    public let birthM = inputBirthM;
+    public let birthD = inputBirthD;
+    public let birthY = inputBirthY;
+    public var sport = inputSport;
+    public var gender = inputGender;
   };
 
-  class SportMW(inputName : Text, inputAge : Nat) = {   // Functional snippet to improve.
-    let name = inputName;
-    let age = inputAge;
-  };
-
-  let s1 = SportMW("Alice", 9);
-  let s2 = SportMW("June", 10);
-
+  let s1 = SportMW("Alice", "P", 1, 1, 2014, "Dance", "Woman");
+  Debug.print(debug_show (s1));
 };
