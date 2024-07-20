@@ -1,11 +1,18 @@
 import Debug "mo:base/Debug";
 import Time "mo:base/Time";
-import Array "mo:base/Array";
-import Iter "mo:base/Iter";
 import Text "mo:base/Text";
 import Float "mo:base/Float";
+import HashMap "mo:base/HashMap";
+
+import Database "Database";
 
 actor main {
+
+  type Athlete = {
+    fName : Text;
+    lName : Text;
+    sport : Text;
+  };
 
   /* ------------------------ ATHLETE IDENTITY -------------------------- */
 
@@ -30,24 +37,22 @@ actor main {
   //   Debug.print(debug_show (ageInS));
   // };
 
-  class SportMW(
+  /* ---------------- CREATE ATHLETE ID ---------------- */
+
+  public func addAthlete (
     inputFName : Text,
     inputLName : Text,
-    inputBirthM : Nat,
-    inputBirthD : Nat,
-    inputBirthY : Nat,
     inputSport : Text,
-    inputGender : Text,
-  ) = {
-    public let fName = inputFName;
-    public let lName = inputLName;
-    public let birthM = inputBirthM;
-    public let birthD = inputBirthD;
-    public let birthY = inputBirthY;
-    public var sport = inputSport;
-    public var gender = inputGender;
+  ) {
+
+    let athlete : Athlete = {
+      fName = inputFName;
+      lName = inputLName;
+      sport = inputSport;
+    };
+  Debug.print(debug_show (athlete.fName));
   };
 
-  let s1 = SportMW("Alice", "P", 1, 1, 2014, "Dance", "Woman");
-  Debug.print(debug_show (s1));
 };
+
+/* ---------------- ADD THE ATHLETE TO THE BASE ---------------- */

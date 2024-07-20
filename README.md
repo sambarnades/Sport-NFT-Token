@@ -1,4 +1,8 @@
-# `sport_nft_marketplace`
+# Sport NFT Marketplace
+
+The Sport NFT Marketplace is a new generation NFT Marketplace for young athletes & investors. Based on ICP Blockchain, independently maintained, secure, this marketplace allow young athlete to create their own content as NFT they can sell
+
+<!--------------------- TECHNICAL COMMANDS --------------------->
 
 Welcome to your new `sport_nft_marketplace` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
 
