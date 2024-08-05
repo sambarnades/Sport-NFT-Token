@@ -1,8 +1,10 @@
 import Debug "mo:base/Debug";
-import Time "mo:base/Time";
+// import Time "mo:base/Time";
 import Text "mo:base/Text";
-import Float "mo:base/Float";
-import HashMap "mo:base/HashMap";
+// import Float "mo:base/Float";
+// import HashMap "mo:base/HashMap";
+import Array "mo:base/Array";
+import Buffer "mo:base/Buffer";
 
 import Database "Database";
 
@@ -39,20 +41,30 @@ actor main {
 
   /* ---------------- CREATE ATHLETE ID ---------------- */
 
-  public func addAthlete (
+  var athletes = Buffer.Buffer<Athlete>(0);
+  var athleteId : Nat = 0;
+
+  public func addAthlete(
     inputFName : Text,
     inputLName : Text,
     inputSport : Text,
   ) {
 
     let athlete : Athlete = {
+      athleteId = athleteId; // Doesn't work.
       fName = inputFName;
       lName = inputLName;
       sport = inputSport;
     };
-  Debug.print(debug_show (athlete.fName));
-  };
 
+    athleteId += 1;
+
+    athletes.add(athlete);
+
+    Debug.print(debug_show (Buffer.toArray(athletes)));
+    Debug.print(debug_show (athleteId));
+
+  };
 };
 
 /* ---------------- ADD THE ATHLETE TO THE BASE ---------------- */
