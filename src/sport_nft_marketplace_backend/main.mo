@@ -11,6 +11,7 @@ import Database "Database";
 actor main {
 
   type Athlete = {
+    athleteId : Nat;
     fName : Text;
     lName : Text;
     sport : Text;
@@ -39,10 +40,9 @@ actor main {
   //   Debug.print(debug_show (ageInS));
   // };
 
-  /* ---------------- CREATE ATHLETE ID ---------------- */
+  /* ---------------- CREATE ATHLETE ID & ADD HIM/HER TO THE DATABASE ---------------- */
 
   var athletes = Buffer.Buffer<Athlete>(0);
-  var athleteId : Nat = 0;
 
   public func addAthlete(
     inputFName : Text,
@@ -51,20 +51,16 @@ actor main {
   ) {
 
     let athlete : Athlete = {
-      athleteId = athleteId; // Doesn't work.
+      athleteId = athletes.size();
       fName = inputFName;
       lName = inputLName;
       sport = inputSport;
     };
 
-    athleteId += 1;
-
     athletes.add(athlete);
 
-    Debug.print(debug_show (Buffer.toArray(athletes)));
-    Debug.print(debug_show (athleteId));
+    // Debug.print(debug_show (Buffer.toArray(athletes)));
+    // Debug.print(debug_show (athletes.size()));
 
   };
 };
-
-/* ---------------- ADD THE ATHLETE TO THE BASE ---------------- */
