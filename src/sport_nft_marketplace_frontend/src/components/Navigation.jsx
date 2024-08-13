@@ -2,10 +2,16 @@ import react from 'react';
 
 {/* ---------------- TOP LEVEL MENU ---------------- */ }
 
+function connexionSubmit() {
+    let identifier = document.getElementById('identifier').value.toString();
+    console.log(identifier);
+  }
+  
+
 function Navigation() {
 
     return (
-        <div>
+        <div className='component navigation-component'>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">Sport NFT Marketplace</a>
