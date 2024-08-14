@@ -1,7 +1,11 @@
-.component-show{
+body {
+    background-color: black;
+}
+
+.component-showed{
     display: block;
 }
 
-.component-hide{
+.component-hidden{
     display: none;
 }

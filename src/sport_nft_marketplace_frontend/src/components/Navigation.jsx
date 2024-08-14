@@ -1,15 +1,10 @@
 import react from 'react';
 
+// import functions from '../functions';
+
 {/* ---------------- TOP LEVEL MENU ---------------- */ }
 
-function connexionSubmit() {
-    let identifier = document.getElementById('identifier').value.toString();
-    console.log(identifier);
-  }
-  
-
-function Navigation() {
-
+function Navigation(props) {
     return (
         <div className='component navigation-component'>
             <nav className="navbar navbar-expand-lg">
@@ -46,7 +41,7 @@ function Navigation() {
                     <form id="connexion-form" name='connexion-form'>
                         <input id="identifier" name="identifier" className='form-control mb-3' type="text" placeholder="ID" />
                         <input id="password" name="password" className='form-control mb-3' type="password" placeholder="Mot de passe" />
-                        <button id="submit" name="submit" onClick={connexionSubmit} className='btn btn-primary mb-3'>Connexion</button>
+                        <button id="submit" name="submit" type='button' onClick={props.getDashboard} className='btn btn-primary mb-3'>Connexion</button>
                     </form>
                 </div>
             </div>
