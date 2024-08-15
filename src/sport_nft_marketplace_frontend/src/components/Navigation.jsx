@@ -1,10 +1,9 @@
 import react from 'react';
 
-// import functions from '../functions';
-
 {/* ---------------- TOP LEVEL MENU ---------------- */ }
 
 function Navigation(props) {
+
     return (
         <div className='component navigation-component'>
             <nav className="navbar navbar-expand-lg">
@@ -25,7 +24,7 @@ function Navigation(props) {
                                 <a className="nav-link" href="#">Connect a wallet</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#"><button className='btn btn-primary'><span className='bi bi-person'></span> Sign Up</button></a>
+                                <a className="nav-link" href="#"><button className='btn btn-primary' type="button" onClick={props.logout}><span className='bi bi-person'></span>{props.loginState}</button></a>
                             </li>
                         </ul>
                         <form className="d-flex" role="search">
@@ -35,16 +34,6 @@ function Navigation(props) {
                     </div>
                 </div>
             </nav>
-            <div className='container'>
-                <div className='row'>
-                    <h1>Connexion</h1>
-                    <form id="connexion-form" name='connexion-form'>
-                        <input id="identifier" name="identifier" className='form-control mb-3' type="text" placeholder="ID" />
-                        <input id="password" name="password" className='form-control mb-3' type="password" placeholder="Mot de passe" />
-                        <button id="submit" name="submit" type='button' onClick={props.getDashboard} className='btn btn-primary mb-3'>Connexion</button>
-                    </form>
-                </div>
-            </div>
         </div>
     );
 }
