@@ -14,5 +14,8 @@
   "type": "module",
   "workspaces": [
     "src/sport_nft_marketplace_frontend"
-  ]
+  ],
+  "dependencies": {
+    "chance": "^1.1.12"
+  }
 }

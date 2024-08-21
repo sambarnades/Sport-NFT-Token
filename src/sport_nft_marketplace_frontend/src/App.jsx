@@ -3,6 +3,9 @@ import { sport_nft_marketplace_backend } from 'declarations/sport_nft_marketplac
 import Navigation from './components/Navigation.jsx';
 import Dashboard from './components/Dashboard.jsx';
 import LoginPanel from './components/LoginPanel.jsx';
+import NFT from './components/NFTs.jsx';
+
+var chance = new Chance(Math.random);
 
 function App() {
 
@@ -10,16 +13,22 @@ function App() {
 
   const components = [
     {
-      id: 1,
+      id: 1,                                // Must improve.
       name: 'Navigation',
       component: <Navigation />,
-      toggle: true
+      isActive: true
     },
     {
       id: 2,
+      name: 'LoginPanel',
+      component: <LoginPanel />,
+      isActive: true
+    },
+    {
+      id: 3,
       name: 'Dashboard',
       component: <Dashboard />,
-      toggle: false
+      isActive: false
     }
   ];
 
@@ -30,17 +39,12 @@ function App() {
   const [identifier, setIdentifier] = useState(false);                                         // Declare UseState for identifier.
   const dashboard = <Dashboard />
   function login() {
-  //   document.querySelector(".login-component").classList.add("component-hidden");          // Hide navigation component.
-  //   document.querySelector(".dashboard-component").classList.remove("component-hidden");        // Show dashboard component.
-
     setIsLoggedIn(true);
     setLoginState("Sign Out");
     setIdentifier(document.getElementById('identifier').value.toString());                      // Set identifier dynamically.       
   }
 
   function logout() {
-    // document.querySelector(".login-component").classList.remove("component-hidden");         // Show navigation component.
-    // document.querySelector(".dashboard-component").classList.add("component-hidden");           // Hide dashboard component.
     setIsLoggedIn(false);
     setLoginState("Sign Up");
     setIdentifier("null");
@@ -52,7 +56,16 @@ function App() {
   return (
     <main className='container-fluid'>
       <Navigation loginState={loginState} logout={logout} />
-      {isLoggedIn ? <Dashboard identifier = {identifier} /> : <LoginPanel login={login} />}
+      {isLoggedIn ?
+
+        <div className='container'>
+          <Dashboard identifier={identifier} />
+          <div className='row row-cols-2 row-cols-lg-4'>
+            <NFT />
+          </div>
+        </div>
+
+        : <LoginPanel login={login} />}
 
     </main>
   );

@@ -59,8 +59,12 @@ actor main {
 
     athletes.add(athlete);
 
-    // Debug.print(debug_show (Buffer.toArray(athletes)));
-    // Debug.print(debug_show (athletes.size()));
+    Debug.print(debug_show (Buffer.toArray(athletes)));
+    Debug.print(debug_show (athletes.size()));
 
   };
+
+public query func getAthletes() : async [Athlete] { // Corrected syntax
+  return Buffer.toArray<Athlete>(athletes);
+}
 };
